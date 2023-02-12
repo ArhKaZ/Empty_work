@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UtiliseMP index{% endblock %}
+
+{% block body %}
+    <h1>UtiliseMP index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Id_article</th>
+                <th>Id_mp</th>
+                <th>Quantité</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilise_m_p in utilise_m_ps %}
+            <tr>
+                <td>{{ utilise_m_p.id }}</td>
+                <td>{{ utilise_m_p.idArticle }}</td>
+                <td>{{ utilise_m_p.idMp }}</td>
+                <td>{{ utilise_m_p.quantite }}</td>
+                <td>
+                    <a href="{{ path('utilise_m_p_show', {'id': utilise_m_p.id}) }}">show</a>
+                    <a href="{{ path('utilise_m_p_edit', {'id': utilise_m_p.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('utilise_m_p_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Matières Premieres{% endblock %}
+
+{% block body %}
+    <h1>Matières Premières</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Unite de mesure</th>
+                <th>Stock SOBELE | MARJORIS</th>
+                <th>Prix ht</th>
+                <th scope="col" class="text-end">
+                <a href="{{ path('matiere_premiere_new') }}" class="btn btn-success">Ajouter une MP</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for matiere_premiere in matiere_premieres %}
+
+                <tr class="align-middle{# table-{{ matiere_premiere.etat }}#}">
+                    <td>{{ matiere_premiere.ref }}</td>
+                    <td>{{ matiere_premiere.uniteMesure }}</td>
+                    <td>
+                        <a href="{{ path('matiere_premiere_stock_index', {id: matiere_premiere.id}) }}" class="bi bi-arrow-down-up"></a>
+                        {{ matiere_premiere.stockSobele }} | {{ matiere_premiere.stockMarjoris }}
+                    </td>
+                    <td>{{ matiere_premiere.prixHt }}</td>
+                    <td class="text-end">
+                        <a href="{{ path('matiere_premiere_edit', {'id': matiere_premiere.id}) }}" class="btn btn-primary">Modifier</a>
+                    </td>
+                </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune matière première</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

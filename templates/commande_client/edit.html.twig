@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CommandeClient{% endblock %}
+
+{% block body %}
+    <h1>Edit la vente</h1>
+
+    {{ include('commande_client/_form.html.twig', {'button_label': 'Update'}) }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/collection.js') }}"></script>
+    <script src="js/{{ asset('js/ventes/calculMontant.js') }}"></script>
+{% endblock %}

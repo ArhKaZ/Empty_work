@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Article - {{ article.nom }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/tagsinput.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+        <h1 class="mb-5">Modifier l'article</h1>
+    </div>
+
+    {{ include('article/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/articles/tagsinput/bootstrap-tagsinput.js') }}"></script>
+    <script src="{{ asset('js/articles/typehead.js') }}"></script>
+    <script src="{{ asset('js/articles/main.js') }}"></script>
+{% endblock %}
+

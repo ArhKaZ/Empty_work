@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification stock : {{ matiere_premiere.ref }}{% endblock %}
+
+{% block body %}
+    <h1>Modification stock : {{ matiere_premiere.ref }}</h1>
+
+    {{ include('stock_mp/_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let old = parseFloat($('.old-stock').text());
+        let newS = $('.new-stock');
+        newS.text(old);
+        let input = $('#stock_mp_quantitee');
+        input.on('change', function () {
+            newS.text(old + parseFloat(input.val()));
+        });
+    </script>
+{% endblock %}

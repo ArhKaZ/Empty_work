@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les collections{% endblock %}
+
+{% block body %}
+    <h1>Les Collections</h1>
+
+    <table class="table table-striped mt-3">
+        <thead>
+        <tr class="align-middle">
+            <th>Motif</th>
+            <th>Nom</th>
+            <th>Commentaire</th>
+            <th>Nombre de produit</th>
+            <th class="text-end">
+                <a href="{{ path('collection_new') }}" class="btn btn-success">Créer une nouvelle collection</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for collection in collections %}
+            <tr class="align-middle">
+                <td class="p-0">
+                    <img src="{{ asset('uploads/collection_motif/') }}{{ collection.motifFilename }}"
+                         alt="{{ collection.nom }}" style="height: 4em">
+                </td>
+                <th scope="row">{{ collection.nom }}</th>
+                <td>{{ collection.commentaire }}</td>
+                <td>{{ collection.nbProduit }}</td>
+                <td>
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ path('collection_edit', {'id': collection.id}) }}"
+                           class="btn btn-primary me-1">Modifier</a>
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune collection</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

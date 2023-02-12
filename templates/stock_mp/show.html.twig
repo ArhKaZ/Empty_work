@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StockMP{% endblock %}
+
+{% block body %}
+    <h1>StockMP</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stock_m_p.id }}</td>
+            </tr>
+            <tr>
+                <th>Quantitee</th>
+                <td>{{ stock_m_p.quantitee }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ stock_m_p.date ? stock_m_p.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ stock_m_p.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Origine</th>
+                <td>{{ stock_m_p.origine }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stock_m_p_index') }}">back to list</a>
+
+    <a href="{{ path('stock_m_p_edit', {'id': stock_m_p.id}) }}">edit</a>
+
+    {{ include('stock_m_p/_delete_form.html.twig') }}
+{% endblock %}

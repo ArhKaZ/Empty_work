@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification stock : {{ produit.ref }}{% endblock %}
+
+{% block body %}
+    <h1>Modification stock : {{ produit.ref }}</h1>
+    <h2 class="mb-5">Lieux assemblages : {{ produit.taille.article.lieuxAssemblages[0] }}</h2>
+
+    {{ include('stock_produit/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        let old = parseInt($('.old-stock').text());
+        let newS = $('.new-stock');
+        newS.text(old);
+        let input = $('#stock_produit_quantitee');
+        input.on('change', function () {
+            newS.text(old + parseInt(input.val()));
+        });
+    </script>
+{% endblock %}

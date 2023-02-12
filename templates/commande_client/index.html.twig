@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Ventes{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="d-flex justify-content-between">
+            <h1 class="col">Ventes</h1>
+            <div>
+                {{ form_start(form) }}
+                <div class="d-flex">
+                    {{ form_row(form.month) }}
+                    <button class="btn btn-secondary ms-2">Exporter les ventes du mois (excel)</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+        {#
+        <div class="col text-end">
+            <a href="{{ path('vente_excel') }}" class="btn btn-primary">Exporter</a>
+            <a href="{{ path('import') }}" class="btn btn-primary">Importer</a>
+        </div>
+        #}
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Num</th>
+            <th>Commentaire</th>
+            <th>Date</th>
+            <th>Montant</th>
+            <th>Facture</th>
+            <th>Lieu de vente</th>
+            <th class="text-end">
+                <a href="{{ path('commande_client_new') }}" class="btn btn-success">Nouvelle vente</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for commande_client in commande_clients %}
+            <tr class="{{ commande_client.annuler ? 'table-danger' : '' }} align-middle">
+                <td>{{ commande_client.num }}</td>
+                <td>{{ commande_client.commentaire }}</td>
+                <td>{{ commande_client.dateCommande ? commande_client.dateCommande|date('d/m/Y') : '' }}</td>
+                <td>{{ commande_client.montant }} € ({{ commande_client.typePaiement }})</td>
+                <td>{{ commande_client.facture }}</td>
+                <td>{{ commande_client.lieuVente }}</td>
+                <td class="text-end">
+                    <a href="{{ path('commande_client_show', {'id': commande_client.id}) }}" class="bi bi-eye fs-5"></a>
+                    <a href="{{ path('commande_client_edit', {'id': commande_client.id}) }}"
+                       class="bi bi-pencil-square fs-5"></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Acune commande</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

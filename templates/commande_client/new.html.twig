@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Vente{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/vente/client.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Vente</h1>
+
+    {{ include('commande_client/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>const apiClientUrl = "{{ path('client_api') }}"</script>
+    <script src="{{ asset('js/ventes/client.js') }}"></script>
+    <script src="{{ asset('js/collection.js') }}"></script>
+    <script src="{{ asset('js/ventes/calculMontant.js') }}"></script>
+{% endblock %}

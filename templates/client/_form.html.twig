@@ -1,0 +1,42 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+<div class="row mb-3 mt-2">
+    <div class="col-3">{{ form_row(form.nom, {'label': 'Nom *'}) }}</div>
+    <div class="col-3">{{ form_row(form.prenom, {'label': 'Prénom *'}) }}</div>
+    <div class="col-3">{{ form_row(form.mail, {'label': 'Mail *'}) }}</div>
+</div>
+<div class="row mb-5">
+    <div class="col-3">{{ form_row(form.societe) }}</div>
+    <div class="col-3">{{ form_row(form.telephone, {'label': 'Téléphone *'}) }}</div>
+</div>
+<div class="row mb-3 mt-5 ">
+    <H4>Adresse : </H4>
+    <div class="col-3">{{ form_row(form.adresse.adresse, {'label': 'Adresse *'}) }}</div>
+</div>
+    <div class="row mb-5">
+        <div class="col-3">{{ form_row(form.adresse.ville, {'label': 'Ville *'}) }}</div>
+        <div class="col-3">{{ form_row(form.adresse.code_postal, {'label': 'Code postal *'}) }}</div>
+        <div class="col-3">{{ form_row(form.adresse.pays, {'label': 'Pays *'}) }}</div>
+    </div>
+    <div>
+    </div>
+<div class="row adresse mb-3 mt-5 visually-hidden">
+    <h4>Adresse Complémentaire : </h4>
+    <div class="col-3">{{ form_row(form.adresse_complementaire.adresse) }}</div>
+
+    <div class="row mb-3">
+
+        <div class="col-3" >{{ form_row(form.adresse_complementaire.ville) }}</div>
+        <div class="col-3">{{ form_row(form.adresse_complementaire.code_postal) }}</div>
+        <div class="col-3">{{ form_row(form.adresse_complementaire.pays) }}</div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-primary">Ajouter</button>
+            <a href="{{ path('client_index') }}" class="btn btn-secondary">Retour</a>
+            <button type="button" class="col adresse-btn btn btn-info" value="0">Adresse complémentaire</button>
+        </div>
+    </div>
+{{ form_end(form) }}
+

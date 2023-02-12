@@ -1,0 +1,52 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+<h2 class="text-danger">Ne fonctionne pas encore</h2>
+<h2>Commande</h2>
+<div class="row mb-3">
+    <div class="col-4">{{ form_row(form.num) }}</div>
+    <div class="col-4">{{ form_row(form.facture) }}</div>
+    <div class="col">{{ form_row(form.lieu_vente) }}</div>
+    <div class="col">{{ form_row(form.date_commande, {'label': 'Date commande *'}) }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col-7">{{ form_row(form.commentaire, {attr: {rows: 1}}) }}</div>
+    <div class="col-5">{{ form_row(form.client, {'label': 'Client *'}) }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col-4">
+        <h2>Livraison</h2>
+        <div class="mb-2">{{ form_row(form.bon_livraison) }}</div>
+        <div class="mb-2">{{ form_row(form.frais_livraison) }}</div>
+        <div class="mb-2">{{ form_row(form.date_livraison) }}</div>
+        <div class="visually-hidden">
+            {{ form_row(form.avoir_num) }}
+            {{ form_row(form.avoir_montant) }}
+        </div>
+        <div class="mt-5">
+            <button class="btn btn-primary">Enregistrer</button>
+            <a href="{{ path('commande_client_index') }}" class="btn btn-secondary">Retour</a>
+        </div>
+    </div>
+    <div class="col ms-5">
+        <div class="row">
+            {% form_theme form 'commande_client/_form_theme.html.twig' %}
+            {{ form_row(form.panier) }}
+        </div>
+        {#<div class="row mt-3">
+            <div class="col-4">{{ form_row(form.montant, {'label': 'Montant *'}) }}</div>
+            <div class="col-4">{{ form_row(form.remise) }}</div>
+            <div class="col-4">{{ form_row(form.type_paiement, {'label': 'Type paiement *'}) }}</div>
+        </div>#}
+            {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        <div class="row">
+            <div class="col-6">
+                {{ form_row(form.ttht) }}
+                {{ form_row(form.tva) }}
+                {{ form_row(form.ttc) }}
+                {{ form_row(form.remise) }}
+                {{ form_row(form.montant) }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

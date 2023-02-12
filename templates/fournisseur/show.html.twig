@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournisseur{% endblock %}
+
+{% block body %}
+    <h1>Fournisseur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Numéro</th>
+                <td>{{ fournisseur.num }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ fournisseur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Activité</th>
+                <td>{{ fournisseur.activite }}</td>
+            </tr>
+            <tr>
+                <th>Téléphone</th>
+                <td>{{ fournisseur.tel }}</td>
+            </tr>
+            <tr>
+                <th>Portable</th>
+                <td>{{ fournisseur.portable }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ fournisseur.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ fournisseur.email }}</td>
+            </tr>
+            <tr>
+                <th>Site</th>
+                <td>{{ fournisseur.site }}</td>
+            </tr>
+            <tr>
+                <th>Date de creation</th>
+                <td>{{ fournisseur.dateCreation ? fournisseur.dateCreation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Type de fournisseur</th>
+                <td>{{ fournisseur.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('fournisseur_index') }}">Retourner à la liste</a>
+
+    <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}">Modifier</a>
+
+{% endblock %}

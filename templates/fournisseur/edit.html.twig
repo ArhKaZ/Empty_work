@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon fournisseur {% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+        <h1 class="mb-5">Modifier le fournisseur</h1>
+    </div>
+
+    {{ include('fournisseur/_form.html.twig', {'button_label': 'Update'}) }}
+   
+
+{% endblock %}

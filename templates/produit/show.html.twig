@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <h1>Produit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Collection</th>
+                <td>{{ produit.collection }}</td>
+            </tr>
+            <tr>
+                <th>Article</th>
+                <td>{{ produit.taille.article }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ produit.taille }}</td>
+            </tr>
+            <tr>
+                <th>REF</th>
+                <td>{{ produit.ref }}</td>
+            </tr>
+            <tr>
+                <th>REF compta</th>
+                <td>{{ produit.article.refCompta }}</td>
+            </tr>
+            <tr>
+                <th>Seuil alerte</th>
+                <td>{{ produit.seuilAlerte }}</td>
+            </tr>
+            <tr>
+                <th>Seuil critique</th>
+                <td>{{ produit.seuilCritique }}</td>
+            </tr>
+            <tr>
+                <th>Prix public</th>
+                <td>{{ produit.prixPublic }}</td>
+            </tr>
+            <tr>
+                <th>Prix revendeur</th>
+                <td>{{ produit.prixRevendeur }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ produit.stock }}</td>
+            </tr>
+            <tr>
+                <th>Dans catalogue</th>
+                <td>{{ produit.dansCatalogue ? 'Oui' : 'Non' }}</td>
+            </tr>
+            <tr>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('produit_edit', {'id': produit.id}) }}" class="btn btn-primary">Modifier</a>
+    <a href="{{ path('produit_index') }}" class="btn btn-secondary">Retour</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <h1>Ajouter des fournitures</h1>
+    <h2 class="mb-5">Article : {{ taille.article.nom }}</h2>
+    {{ include('taille/_form.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/collection.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier mon catalogue{% endblock %}
+
+{% block body %}
+    <h1>Modifier mon produit : {{ produit.ref }}</h1>
+
+    {{ include('produit/_form.html.twig') }}
+
+{% endblock %}

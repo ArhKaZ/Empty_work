@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New UtiliseMP{% endblock %}
+
+{% block body %}
+    <h1>Create new UtiliseMP</h1>
+
+    {{ include('utilise_m_p/_form.html.twig') }}
+
+    <a href="{{ path('utilise_m_p_index') }}">back to list</a>
+{% endblock %}

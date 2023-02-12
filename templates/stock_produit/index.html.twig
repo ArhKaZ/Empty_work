@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon stock de {{ produit.ref }}{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+        <h1>Stock : {{ produit.stock }}</h1>
+        <h1><a href="{{ path('produit_show', {id: produit.id}) }}">{{ produit.ref }}</a></h1>
+    </div>
+    <h2>Assemblage : {{ produit.taille.article.lieuxAssemblages[0] }}</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Quantité</th>
+            <th>Commentaire</th>
+            <th>Origine</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for stock_produit in stock_produits %}
+            <tr>
+                <td>{{ stock_produit.date ? stock_produit.date|date('d/m/Y H:i') : '' }}</td>
+                <td>{{ stock_produit.quantitee }}</td>
+                <td>{{ stock_produit.commentaire }}</td>
+                <td>{{ stock_produit.origine }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun stock</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produit_stock_update', {id: produit.id}) }}" class="btn btn-primary">Modifier le stock</a>
+{% endblock %}

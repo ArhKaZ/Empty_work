@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matières Premières{% endblock %}
+
+{% block body %}
+    <h1>Matière Premières</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ matiere_premiere.id }}</td>
+            </tr>
+            <tr>
+                <th>Référence</th>
+                <td>{{ matiere_premiere.ref }}</td>
+            </tr>
+            <tr>
+                <th>Unite de mesure</th>
+                <td>{{ matiere_premiere.uniteMesure }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ matiere_premiere.stock }}</td>
+            </tr>
+            <tr>
+                <th>Seuil d'alerte</th>
+                <td>{{ matiere_premiere.seuilAlerte }}</td>
+            </tr>
+            <tr>
+                <th>Seuil critique</th>
+                <td>{{ matiere_premiere.seuilCritique }}</td>
+            </tr>
+            <tr>
+                <th>Prix ht</th>
+                <td>{{ matiere_premiere.prixHt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('matiere_premiere_index') }}">Retourner à la liste</a>
+
+    <a href="{{ path('matiere_premiere_edit', {'id': matiere_premiere.id}) }}">Modifier</a>
+
+{% endblock %}

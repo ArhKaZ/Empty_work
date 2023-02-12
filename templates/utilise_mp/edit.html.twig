@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit UtiliseMP{% endblock %}
+
+{% block body %}
+    <h1>Edit UtiliseMP</h1>
+
+    {{ include('utilise_m_p/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('utilise_m_p_index') }}">back to list</a>
+
+    {{ include('utilise_m_p/_delete_form.html.twig') }}
+{% endblock %}

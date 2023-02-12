@@ -1,0 +1,33 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+<div class="row mb-3 mt-5">
+    <div class="col">{{ form_row(form.num, {'label': 'Numéro *'}) }}</div>
+    <div class="col">{{ form_row(form.nom, {'label': 'Nom *'}) }}</div>
+    <div class="col">{{ form_row(form.activite, {'label': 'Activité *'}) }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col">{{ form_row(form.tel , {'label': 'Téléphone *'}) }}</div>
+    <div class="col">{{ form_row(form.portable) }}</div>
+    <div class="col">{{ form_row(form.fax) }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col">{{ form_row(form.email) }}</div>
+    <div class="col">{{ form_row(form.site) }}</div>
+    <div class="col">{{ form_row(form.type, {'label': 'Type *'}) }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col">{{ form_row(form.adresse.adresse, {'label': 'Adresse *'}) }}</div>
+    <div class="col">{{ form_row(form.adresse.ville, {'label': 'Ville *'}) }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col">{{ form_row(form.adresse.code_postal, {'label': 'Code postal *'}) }}</div>
+    <div class="col">{{ form_row(form.adresse.pays, {'label': 'Pays *'}) }}</div>
+    <div class="col">{{ form_row(form.date_creation, {'label': 'Date *'}) }}</div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <button class="btn btn-primary">Enregistrer</button>
+        <a href="{{ path('fournisseur_index') }}" class="btn btn-secondary">Retour</a>
+    </div>
+</div>
+{{ form_end(form) }}

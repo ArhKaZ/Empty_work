@@ -1,0 +1,37 @@
+{% block collection_row %}
+    {% if prototype is defined %}
+        {% set attr = attr|merge({'data-prototype': block('collection_item_widget') }) %}
+    {% endif %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" class="col-8">Produit</th>
+            <th scope="col" class="col-2">Quantité *</th>
+            <th scope="col" class="text-end">
+                <a href="" class="mp-add" data-collection-holder-class="tags"><i class="bi bi-plus-circle fs-5"></i></a>
+            </th>
+        </tr>
+        </thead>
+        <tbody class="mp-warper" {{ block('widget_container_attributes') }}>
+        {% for panier in form %}
+            <tr class="mp-item align-middle">
+                <th scope="row">{{ form_widget(panier.produit) }}</th>
+                <td>{{ form_widget(panier.quantite) }}</td>
+                <td class="text-end">
+                    <a href="" class="mp-remove"><i class="bi bi-x-circle fs-5 text-danger"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock collection_row %}
+
+{% block collection_item_widget %}
+    <tr class="col mp-item align-middle">
+        <th scope="row">{{ form_widget(prototype.produit) }}</th>
+        <td>{{ form_widget(prototype.quantite) }}</td>
+        <td class="text-end">
+            <a href="" class="mp-remove"><i class="bi bi-x-circle fs-5 text-danger"></i></a>
+        </td>
+    </tr>
+{% endblock collection_item_widget %}

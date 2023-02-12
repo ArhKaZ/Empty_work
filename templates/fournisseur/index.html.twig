@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les fournisseurs{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-between">
+        <h2>Liste des Fournisseurs</h2>
+    </div>
+    <table class="table">
+        <thead>
+        <tr class="align-middle">
+            <th scope="col">Numéro</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Activité</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Type</th>
+            <th scope="col" class="text-end">
+                <a href="{{ path('fournisseur_new') }}" class="btn btn-success">Ajouter un fournisseur</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr class="align-middle">
+                <td>{{ fournisseur.num }}</td>
+                <td> {{ fournisseur.nom }}</td>
+                <td> {{ fournisseur.activite }}</td>
+                <td>{{ fournisseur.tel }}</td>
+                <td>{{ fournisseur.type }}</td>
+                <td class="text-end">
+                    <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}" class="btn btn-primary">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

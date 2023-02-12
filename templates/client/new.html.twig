@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Client{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau Client</h1>
+
+    {{ include('client/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>
+    let adresse = $('.adresse');
+    let btn = $('.adresse-btn')
+    btn.on('click', function (){
+        if (btn.val() === '1') {
+            btn.val('0');
+            adresse.addClass('visually-hidden');
+        } else {
+            btn.val('1');
+            adresse.removeClass('visually-hidden');
+        }
+    });
+</script>
+{% endblock %}

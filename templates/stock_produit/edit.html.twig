@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le stock d'un produit{% endblock %}
+
+{% block body %}
+    <h1>Modifier le stock de {{ produit.ref }}</h1>
+    <h2>Lieux assemblages : {{ produit.taille.article.lieuxAssemblages[0] }}</h2>
+
+    {{ include('stock_produit/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('stock_produit_index') }}">back to list</a>
+
+    {{ include('stock_produit/_delete_form.html.twig') }}
+{% endblock %}

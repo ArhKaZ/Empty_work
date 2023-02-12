@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}UtiliseMP{% endblock %}
+
+{% block body %}
+    <h1>UtiliseMP</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ utilise_m_p.id }}</td>
+            </tr>
+            <tr>
+                <th>Id_article</th>
+                <td>{{ utilise_m_p.idArticle }}</td>
+            </tr>
+            <tr>
+                <th>Id_mp</th>
+                <td>{{ utilise_m_p.idMp }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ utilise_m_p.quantite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('utilise_m_p_index') }}">back to list</a>
+
+    <a href="{{ path('utilise_m_p_edit', {'id': utilise_m_p.id}) }}">edit</a>
+
+    {{ include('utilise_m_p/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <hr>
+    <row>
+        <columns>
+            <p>
+                Liste du stock de produit :
+            </p>
+        </columns>
+    </row>
+    <row>
+        <columns>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Référence</th>
+                    <th>Collection</th>
+                    <th>Taille</th>
+                    <th>Stock</th>
+                    <th>Ref Compta</th>
+                </tr>
+                {% for produit in produits %}
+                    <tr>
+                        <td>{{ loop.index }}</td> {# permet d'afficher numero du for #}
+                        <td>{{ produit.ref }}</td>
+                        <td>{{ produit.collection }}</td>
+                        <td>{{ produit.taille }}</td>
+                        <td>{{ produit.stock }}</td>
+                        <td>{{ produit.refCompta }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </columns>
+    </row>
+{% endblock %}

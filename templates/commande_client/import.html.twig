@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Import vente{% endblock %}
+
+{% block body %}
+    {{ form(form) }}
+    <h4 class="mt-5">Format du fichier</h4>
+    <p>nom_du_fichier.csv</p>
+    <pre>
+Date achat;N° commande;n°  Facture;Nom;Prénom;Adresse;Code postal;Ville;Pays;Mail;Tél;quantité;article acheté;collection;taille;cb;especes;cheque;cheque cadeaux;virement;ou;Invitatons MIF;;;;;;;;;;;;;;;;;
+02/01/20;;;bordes;christine;13 l'epinais;44130;bouvron;France;christinebordes44@free.fr;0642453606;1;bandeau;faustine;95C;75;;;;;site;;;;;;;;;;;;;;;;;;
+    </pre>
+{% endblock %}
+
+

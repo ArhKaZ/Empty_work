@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle collection</h1>
+
+    {% set modifReq = true %}
+    {{ include('collection_article/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/collections/updateImage.js') }}"></script>
+    <script src="{{ asset('js/collections/checkbox.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+    {# {{ form_widget(form, {'attr': {'class': 'mb-3'}}) }} #}
+{{ form_row(form.nom, {'label': 'Nom *' }) }}
+{{ form_row(form.refCompta) }}
+{{ form_row(form.nbNoeud, {'label': 'Nombre de noeuds *' }) }}
+{{ form_row(form.commentaire) }}
+{% if form.tailles is defined %}
+    {{ form_row(form.tailles, {'label': 'Tailles *'}) }}
+    {# TODO: show error: quand le champs taille est vide aucune erreur n'apparrait #}
+    <p class="fst-italic text-danger">ATTENTION: Il faut au moins une taille</p>
+{% endif %}
+{% form_theme form with [
+    'bootstrap_4_layout.html.twig',
+    'article/_form_theme.html.twig'
+] %}
+<div class="row mt-3">
+    <div class="col">
+        {{ form_row(form.lieux_coupes, {'label': 'Lieux coupes *'}) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.lieux_assemblages, {'label': 'Lieux assemblages *'}) }}
+    </div>
+</div>
+<div class="d-flex">
+    <button class="btn btn-primary">Enregistrer</button>
+    <a href="{{ path('article_index') }}" class="btn">Retour</a>
+</div>
+{{ form_end(form) }}

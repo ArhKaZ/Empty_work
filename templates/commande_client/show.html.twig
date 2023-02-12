@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CommandeClient{% endblock %}
+
+{% block body %}
+    <h1>CommandeClient</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ commande_client.id }}</td>
+            </tr>
+            <tr>
+                <th>Num</th>
+                <td>{{ commande_client.num }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ commande_client.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Date_commande</th>
+                <td>{{ commande_client.dateCommande ? commande_client.dateCommande|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_livraison</th>
+                <td>{{ commande_client.dateLivraison ? commande_client.dateLivraison|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ commande_client.montant }}</td>
+            </tr>
+            <tr>
+                <th>Facture</th>
+                <td>{{ commande_client.facture }}</td>
+            </tr>
+            <tr>
+                <th>Bon_livraison</th>
+                <td>{{ commande_client.bonLivraison }}</td>
+            </tr>
+            <tr>
+                <th>Frais_livraison</th>
+                <td>{{ commande_client.fraisLivraison }}</td>
+            </tr>
+            <tr>
+                <th>Annuler</th>
+                <td>{{ commande_client.annuler ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Type_paiement</th>
+                <td>{{ commande_client.typePaiement }}</td>
+            </tr>
+            <tr>
+                <th>Lieu_vente</th>
+                <td>{{ commande_client.lieuVente }}</td>
+            </tr>
+            <tr>
+                <th>Avoir_num</th>
+                <td>{{ commande_client.avoirNum }}</td>
+            </tr>
+            <tr>
+                <th>Avoir_montant</th>
+                <td>{{ commande_client.avoirMontant }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('commande_client_index') }}">Retour</a>
+
+    <a href="{{ path('commande_client_edit', {'id': commande_client.id}) }}">edit</a>
+
+{% endblock %}

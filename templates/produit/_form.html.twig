@@ -1,0 +1,51 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+{# <div class="row">
+    <div class="col">{{ form_row(form.ref) }}</div>
+    <div class="col">{{ form_row(form.refCompta) }}</div>
+    <div class="col">{{ form_row(form.etiquette_marque) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.prix_public) }}</div>
+    <div class="col">{{ form_row(form.prix_revendeur) }}</div>
+</div>
+<div class="row">
+    <div class="col">{{ form_row(form.seuil_alerte) }}</div>
+    <div class="col">{{ form_row(form.seuil_critique) }}</div>
+    <div class="col mt-4">{{ form_row(form.dans_catalogue) }}</div>
+</div>
+<div class="row">
+    <div class="col mt-4">
+        <button class="btn btn-primary">Enregistrer</button>
+        <a href="{{ path('produit_index') }}" class="btn btn-secondary">Retour</a>
+    </div>
+    <div class="col">{{ form_row(form.utiliseMPs) }}</div>
+</div> #}
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">{{ form_row(form.ref, {'label': 'Référence'}) }}</div>
+            <div class="col">{{ form_row(form.refCompta) }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ form_row(form.prix_public, {'label': 'Prix Public (TTC)'}) }}  </div>
+            <div class="col">{{ form_row(form.prix_revendeur , {'label': 'Prix Revendeur (HT)'}) }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ form_row(form.seuil_alerte) }}</div>
+            <div class="col">{{ form_row(form.seuil_critique) }}</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary">Enregistrer</button>
+                <a href="{{ path('produit_index') }}" class="btn btn-secondary">Retour</a>
+                <a href="{{ path('produit_stock_index',{id: produit.id}) }}" class="btn btn-info">Modifier le stock</a>
+            </div>
+            <div class="col">
+                {{ form_row(form.dans_catalogue) }}
+            </div>
+        </div>
+    </div>
+    {# <div class="col-5">{{ form_row(form.utiliseMPs) }}</div> #}
+</div>
+{{ form_end(form) }}

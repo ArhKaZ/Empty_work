@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Catalogue{% endblock %}
+
+{% block body %}
+    <h1>Catalogue</h1>
+    <div class="text-end">
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'produit/_filter.html.twig' with {form: form} only %}
+            <div class="mt-3">
+                <h4>Légende</h4>
+                <table class="table">
+                    <tbody>
+                    <tr class="table-success">
+                        <th>Stock > seuil d'alert</th>
+                    </tr>
+                    <tr class="table-warning">
+                        <th>Stock < seuil d'alert</th>
+                    </tr>
+                    <tr class="table-danger">
+                        <th>Stock < seuil critique</th>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th>Pas dans le catalogue</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <td class="text-end">
+                    <a href="{{ path('prod_excel') }}" class="btn btn-secondary">Stock produit</a>
+                </td>
+            </div>
+        </div>
+        <div class="col-md-9">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">REF</th>
+                    <th scope="col">{# {{ knp_pagination_sortable(produits, 'Collection', 'collection') }} #}
+                        Collection
+                    </th>
+                    <th scope="col">{# {{ knp_pagination_sortable(produits, 'Article', 'article') }} #}Article</th>
+                    <th scope="col">Taille</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for produit in produits %}
+                    <tr class="align-middle table-{{ produit.etat }}">
+                        <th scope="row">{{ produit.ref }}</th>
+                        <td>{{ produit.collection }}</td>
+                        <td>{{ produit.article }}</td>
+                        <td>{{ produit.taille }}</td>
+                        <td>
+                            <a href="{{ path('produit_stock_index', {id: produit.id}) }}"
+                               class="bi bi-arrow-down-up"></a>
+                            {{ produit.stock }}
+                        </td>
+                        <td class="text-end">
+                            {# TODO:Faire marcher ca : <a href="{{ path('produit_show', {id: produit.id}) }}" class="bi bi-eye fs-5"></a>#}
+                            <a href="{{ path('article_taille_edit', {id: produit.taille.id, id_article: produit.article.id}) }}"
+                               class="bi bi-list-check fs-5 {{ produit.taille.mpDef ? '' : 'text-danger' }}"></a>
+                            <a href="{{ path('produit_edit', {id: produit.id}) }}"
+                               class="bi bi-pencil-square fs-5"></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">Aucun produit</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            {{ knp_pagination_render(produits) }}
+        </div>
+    </div>
+{% endblock %}

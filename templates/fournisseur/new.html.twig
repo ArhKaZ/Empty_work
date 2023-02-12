@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Nouveau fournisseur {% endblock %}
+{% block body %}
+
+    <div class="container mt-4">
+        <h1>Ajouter un fournisseur</h1>
+        {{ include ('fournisseur/_form.html.twig',  { button: 'Ajouter'})}}
+    </div>
+{% endblock %}

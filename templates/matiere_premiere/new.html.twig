@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle matière première{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5">Nouvelle matière première</h1>
+
+    {{ include('matiere_premiere/_form.html.twig') }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/articles/tagsinput/bootstrap-tagsinput.js') }}"></script>
+    <script src="{{ asset('js/articles/typehead.js') }}"></script>
+    <script src="{{ asset('js/articles/main.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/tagsinput.css') }}">
+{% endblock %}

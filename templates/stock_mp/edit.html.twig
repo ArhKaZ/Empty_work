@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le stock de {{ matiere_premiere.ref }}{% endblock %}
+
+{% block body %}
+    <h1>Modifier le stock de {{ matiere_premiere.ref }}</h1>
+
+    {{ include('stock_m_p/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('stock_m_p_index') }}">Retourner à la liste</a>
+
+    {{ include('stock_m_p/_delete_form.html.twig') }}
+{% endblock %}
